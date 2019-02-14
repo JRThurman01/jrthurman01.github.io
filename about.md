@@ -4,11 +4,11 @@ title: About
 permalink: /about/
 ---
 
-I am Data Scientist based in Vancouver, Canada, with experience working in risk management and invesment consulting.
+I am an Actuary/Data Scientist based in Vancouver, Canada, with experience working in risk management and investment consulting.
 
 ### More Information
 
-I have a background in maths and statistics.  
+I have a background in maths and statistics, and love the feeling of solving an interseting problem.  
 <ul>
 	<li>I have a Masters in Mathematics from the University of Bristol, UK. I studied a range of subjects including Bayesian statistics, Information Theory and Quantum Mechanics</li>
 	<li>I am a Fellow of the Institute and Faculty of Actuaries, UK. For those who do not know, an Actuary is a regulated professional typically related to the Insurance, Data analytics and Defined Benefit Pension plans. Actuaries study elements of 
