@@ -15,6 +15,8 @@ I have a background in maths and statistics.
 economics, finance, statistics and modelling. </li>
 	<li>More recently, I have completed a post-graduate diploma in Data Science at Brainstation, Vancouver, Canada. The course covered a number of subjects including coding/ scripting in Python, Machine Learning and Statistical inference.</li>
 
+</ul>
+
 I have 10 years of experience working as an Actuarial Consultant, providing investment management, risk management and actuarial services to some of the largest pensions plans across the UK and Canada. I am now currently looking for opportunities to leave pension 
 plans behind me and use statistical techniques and machine learning to solve a wider range of business problems.
 
