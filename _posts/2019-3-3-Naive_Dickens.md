@@ -15,14 +15,6 @@ introduction within 4 minutes is well beyond my capabilities as a communicator.
 My idea instead was to use a Naive Bayes model to try and predict a message as it was being typed. The model would take 
 the last two words and provide the most likely next word to be written. A balance between interesting and simple.
 
-Consider that our data takes the following form:
-PriorWord 1 | Prior Word 2 | Next Word
------------- | ------------- | -------------
-It | was | the
-was | the | best
-the | best | of
-best | of | times
-
 ### What is Naive Bayes
 
 Naive Bayes turns the question on its head. Instead of trying to answer the question:
@@ -33,29 +25,33 @@ It asks a subtle different question:
 
 The difference comes about by applying Bayes rule to the problem. The left hand side of the equation is the first question,
 whilst the top of the right hand side is the second question. 
-> P(Word | Prior words) = P(Prior words | Word) * P(Word) / P(Prior words)
+> P(Word|PriorWords) = P(PriorWords|Word)*P(Word)/P(Prior words)
 
 This change of viewpoint simplifies the maths, especially when coupled with the 'Naive' assumption. The 
 Naive assumption is that the features are not correlated. Explicitly, the assumption is that the following
 equation can be rewritten as follow:
-> P(Prior Word 1 & Prior Word 2 ) = P(Prior Word 1) x P(Prior Word 2)
+> P(PriorWord1 & PriorWord2)=P(PriorWord1)xP(PriorWord2)
 
 Taking the following example we can walk through how we would compare each word that might follow the next sentence. 
 > 'margaret's hen'... 
 
 Lets assume that we have the following 2 possibilities:
 
-'the'
-P('the') = 0.1
-P(Prior Word1 = 'Margaret' | Word= 'the') = 0.01
-P(Prior Word2 = 'hen' | Word='the') = 0.0000001
-> P(PriorWords | Word) = 0.1 * 0.01*0.0001 = 0.0000001 (10 **-9)
+* 'the'
+* P('the') = 0.1
+* P(Prior Word1 = 'Margaret' | Word= 'the') = 0.01
+* P(Prior Word2 = 'hen' | Word='the') = 0.0000001
+> P(PriorWords | Word) = 
+> 0.1x0.01x0.0001 = 
+> 0.0000001 (10 **-9)
 
-'clucked'
-P('clucked') = 0.01
-P(Prior Word1 = 'Margaret' | Word= 'clucked') = 0.01
-P(Prior Word2 = 'hen' | Word='clucked') = 0.01
-> P(PriorWords | Word) = 0.01 * 0.01*0.01 = 0.01 (10 **-6)
+* 'clucked'
+* P('clucked') = 0.01
+* P(Prior Word1 = 'Margaret' | Word= 'clucked') = 0.01
+* P(Prior Word2 = 'hen' | Word='clucked') = 0.01
+> P(PriorWords | Word) =
+> 0.01x0.01x0.01 = 
+> 0.000001 (10 **-6)
 
 The word 'clucked' is more likely than the word 'the' - mostly because it is not likely to see the phrase 'hen the'
 would be very uncommon.
@@ -93,18 +89,15 @@ these can be used to more efficiently store the data that you need.
 SciPy has a number of sparse matrices options that can be used for this type of problem.  The one that I found most useful is called the COO matrix. 
 
 This you provide some COOrdinates (e.g. a row and column) and the value. 
-```python
+``` python
 from scipy import sparse
-
 coo_matrix = sparse.coo_matrix(value, (row, col))
-
 ```
 
 It was an instructive task to implement a sparse Naive Bayes model from scratch. The results can be found in my github repo
  [here](https://github.com/JRThurman01/WhatTheDickens)
 
-## Results
-How succesful was the model?
+## How succesful was the model?
 
 I do not think that it will be winning any competitions anytime soon. There were a number of very sensible suggestions and some others
 that were a bit more curious. Better attention to cleaning the data could certainly have helped.
