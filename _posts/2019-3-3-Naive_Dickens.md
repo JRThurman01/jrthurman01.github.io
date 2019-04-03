@@ -24,13 +24,14 @@ It asks a subtle different question:
 > What next word would most likely result in the two words that I know?
 
 The difference comes about by applying Bayes rule to the problem. The left hand side of the equation is the first question,
-whilst the top of the right hand side is the second question. 
-> P(Word|PriorWords) = P(PriorWords|Word)*P(Word)/P(Prior words)
+whilst the top of the right hand side is the second question. Here, 'PW' refers to the known 'prior words' and 'Word' to
+the word that we know.
+> P(Word|PW) = P(PW|Word)*P(Word)/P(PW)
 
 This change of viewpoint simplifies the maths, especially when coupled with the 'Naive' assumption. The 
 Naive assumption is that the features are not correlated. Explicitly, the assumption is that the following
 equation can be rewritten as follow:
-> P(PriorWord1 & PriorWord2)=P(PriorWord1)xP(PriorWord2)
+> P(PW1 & PW2)=P(PW1)xP(PW2)
 
 Taking the following example we can walk through how we would compare each word that might follow the next sentence. 
 > 'margaret's hen'... 
@@ -41,7 +42,7 @@ Lets assume that we have the following 2 possibilities:
 * P('the') = 0.1
 * P(Prior Word1 = 'Margaret' | Word= 'the') = 0.01
 * P(Prior Word2 = 'hen' | Word='the') = 0.0000001
-> P(PriorWords | Word) = 
+> P(PW | Word) = 
 > 0.1x0.01x0.0001 = 
 > 0.0000001 (10 **-9)
 
@@ -49,7 +50,7 @@ Lets assume that we have the following 2 possibilities:
 * P('clucked') = 0.01
 * P(Prior Word1 = 'Margaret' | Word= 'clucked') = 0.01
 * P(Prior Word2 = 'hen' | Word='clucked') = 0.01
-> P(PriorWords | Word) =
+> P(PW | Word) =
 > 0.01x0.01x0.01 = 
 > 0.000001 (10 **-6)
 
