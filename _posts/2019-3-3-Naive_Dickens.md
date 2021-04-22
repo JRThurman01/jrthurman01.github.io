@@ -25,7 +25,7 @@ Taking the following example we can walk through how we would compare each word 
 
 Lets assume that we have the following 2 possibilities:
 
-| Word | P(word) | P(pw1 = 'Margaret's' / word)   | P(pw2 = 'hen' / word)   | Probability   |
+| Word | P(word) | P(pw1 = 'Margaret's' \| word)   | P(pw2 = 'hen' \| word)   | Probability   |
 |------|---------|--------------------------------|-------------------------|---------------|
 | the  | 0.1     | 0.01                           | 0.0000001               |  1 x10**-9    |
 |clucked| 0.01   |  0.01                          | 0.01                    |  1 x10**-6    |
