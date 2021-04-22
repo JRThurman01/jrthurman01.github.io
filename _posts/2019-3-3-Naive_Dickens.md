@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Naive Bayes for high dimension classifiers - and what I learnt about sparse matrices
+title: Language models with Naive Bayes
 ---
 
-## Creating a language model with Naive Bayes
 The model described below is a toy project aimed at describing how a Naive Bayes model works. It was initially made as part of a short presentation to a non-technical audience.
 
 ### What is Naive Bayes
@@ -26,7 +25,7 @@ Taking the following example we can walk through how we would compare each word 
 
 Lets assume that we have the following 2 possibilities:
 
-| Word | P(word) | P(pw1 = 'Margaret's' \ word)   | P(pw2 = 'hen' \ word)   | Probability   |
+| Word | P(word) | P(pw1 = 'Margaret's' / word)   | P(pw2 = 'hen' / word)   | Probability   |
 |------|---------|--------------------------------|-------------------------|---------------|
 | the  | 0.1     | 0.01                           | 0.0000001               |  1 x10**-9    |
 |clucked| 0.01   |  0.01                          | 0.01                    |  1 x10**-6    |
